@@ -1,0 +1,29 @@
+li {
+    font-family: $main-font;
+    margin: 1rem 0;
+    position: relative;
+}
+
+ul {
+    position: relative;
+    padding-left: 1rem;
+
+    li::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        border-radius: 5px;
+        position: absolute;
+        top: 8px;
+        left: -15px;
+        display: inline-block;
+        background-color: $brand-color;
+    }
+
+    ul {
+        padding-left: 2rem;
+        li::before {
+            content: none;
+        }
+    }
+}

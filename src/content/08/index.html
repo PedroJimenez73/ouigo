@@ -1,0 +1,223 @@
+<div id="slide" class="body-box fade-in">
+    <div class="flex">
+        <div class="col-60">
+            <p><img src="img/icono-redsys.png" alt=""><b class="brand">Ejercicio interactivo</b></p>
+            <p>Arrastra los valores marcados en naranja al lugar que le corresponden en la historia. Comprobarás el valor que tienen los datos personales.</p>
+        </div>
+    </div>
+    <div class="drag-drop">
+        <div class="questions">
+            <p><b class="brand">1.</b> Diseñando y ejecutando</p>
+        </div>
+        <div class="drops">
+            <div class="drop" id="drop-1"></div>
+        </div>
+        <div class="drags">
+            <div class="drag" id="drag-5">de Cumplimiento o Compliance Officer.</div>
+        </div>
+    </div>
+    <div class="drag-drop">
+        <div class="questions">
+            <p><b class="brand">2.</b> Revisando cada proceso para</p>
+        </div>
+        <div class="drops">
+            <div class="drop" id="drop-2"></div>
+        </div>
+        <div class="drags">
+            <div class="drag" id="drag-6">para comunicar las irregularidades/consultas.</div>
+        </div>
+    </div>
+    <div class="drag-drop">
+        <div class="questions">
+            <p><b class="brand">3.</b> Proponiendo medidas prácticas y proporcionales</p>
+        </div>
+        <div class="drops">
+            <div class="drop" id="drop-3"></div>
+        </div>
+        <div class="drags">
+            <div class="drag" id="drag-1">eficazmente un Sistema de Compliance.</div>
+        </div>
+    </div>
+    <div class="drag-drop">
+        <div class="questions">
+            <p><b class="brand">4.</b> Facilitando un marco de conducta:</p>
+        </div>
+        <div class="drops">
+            <div class="drop" id="drop-4"></div>
+        </div>
+        <div class="drags">
+            <div class="drag" id="drag-2">comprobar dónde podrían cometerse los delitos.</div>
+        </div>
+    </div>
+    <div class="drag-drop">
+        <div class="questions">
+            <p><b class="brand">5.</b> Nombrando una Unidad</p>
+        </div>
+        <div class="drops">
+            <div class="drop" id="drop-5"></div>
+        </div>
+        <div class="drags">
+            <div class="drag" id="drag-3">que mitiguen esas situaciones.</div>
+        </div>
+    </div>
+    <div class="drag-drop">
+        <div class="questions">
+            <p><b class="brand">6.</b> Ofreciendo canales</p>
+        </div>
+        <div class="drops">
+            <div class="drop" id="drop-6"></div>
+        </div>
+        <div class="drags">
+            <div class="drag" id="drag-4">El CEC y normas internas (ej.: política anticorrupción).</div>
+        </div>
+    </div>
+    <div class="super-text flex p-b">
+        <div class="col-30 flex j-end p">
+            <img class="m-r" style="height: 100px" src="img/icon-remember_white.svg" alt="">
+        </div>
+        <div class="col-70 flex a-center p">
+            <p><b><span style="font-size: 1.2em">Recuerda:</span></b> <b>Cualquiera de nosotros tiene el potencial de cometer delitos, pero cumpliendo con los estándares de Compliance demostraremos que hacemos nuestro trabajo de forma técnica y éticamente adecuada.</b></p>                 
+        </div>
+    </div>
+</div>
+<script>
+    var checkEvents = [false, false, false, false, false, false];
+    $("#drag-1").draggable({
+        revert : function(event, ui) {
+            $(this).addClass("forbidden");
+            $(this).originalPosition = {
+                top : 0,
+                left : 0
+            };
+            setTimeout(function(){$("#drag-1").removeClass("forbidden")}, 1000);
+            return !event;
+        }
+    });
+    $("#drop-1").droppable({
+        accept: '#drag-1',
+        drop: function(event, ui) {
+            var idEl = "#" + ui.helper[0].id;
+            $(this).addClass("dropped").append($(idEl));
+            $(idEl).css({ "top": "-3px", "left": "-3px" }).draggable('disable');
+            checkEvents[0] = true;
+            if(!checkEvents.includes(false)) {
+                passPage();
+            }
+        }
+    });
+    $("#drag-2").draggable({
+        revert : function(event, ui) {
+            $(this).addClass("forbidden");
+            $(this).originalPosition = {
+                top : 0,
+                left : 0
+            };
+            setTimeout(function(){$("#drag-2").removeClass("forbidden")}, 1000);
+            return !event;
+        }
+    });
+    $("#drop-2").droppable({
+        accept: '#drag-2',
+        drop: function(event, ui) {
+            var idEl = "#" + ui.helper[0].id;
+            $(this).addClass("dropped").append($(idEl));
+            $(idEl).css({ "top": "-3px", "left": "-3px" }).draggable('disable');
+            checkEvents[1] = true;
+            if(!checkEvents.includes(false)) {
+                passPage();
+            }
+        }
+    });
+    $("#drag-3").draggable({
+        revert : function(event, ui) {
+            $(this).addClass("forbidden");
+            $(this).originalPosition = {
+                top : 0,
+                left : 0
+            };
+            setTimeout(function(){$("#drag-3").removeClass("forbidden")}, 1000);
+            return !event;
+        }
+    });
+    $("#drop-3").droppable({
+        accept: '#drag-3',
+        drop: function(event, ui) {
+            var idEl = "#" + ui.helper[0].id;
+            $(this).addClass("dropped").append($(idEl));
+            $(idEl).css({ "top": "-3px", "left": "-3px" }).draggable('disable');
+            checkEvents[2] = true;
+            if(!checkEvents.includes(false)) {
+                passPage();
+            }
+        }
+    });
+    $("#drag-4").draggable({
+        revert : function(event, ui) {
+            $(this).addClass("forbidden");
+            $(this).originalPosition = {
+                top : 0,
+                left : 0
+            };
+            setTimeout(function(){$("#drag-4").removeClass("forbidden")}, 1000);
+            return !event;
+        }
+    });
+    $("#drop-4").droppable({
+        accept: '#drag-4',
+        drop: function(event, ui) {
+            var idEl = "#" + ui.helper[0].id;
+            $(this).addClass("dropped").append($(idEl));
+            $(idEl).css({ "top": "-3px", "left": "-3px" }).draggable('disable');
+            checkEvents[3] = true;
+            if(!checkEvents.includes(false)) {
+                passPage();
+            }
+        }
+    });
+    $("#drag-5").draggable({
+        revert : function(event, ui) {
+            $(this).addClass("forbidden");
+            $(this).originalPosition = {
+                top : 0,
+                left : 0
+            };
+            setTimeout(function(){$("#drag-5").removeClass("forbidden")}, 1000);
+            return !event;
+        }
+    });
+    $("#drop-5").droppable({
+        accept: '#drag-5',
+        drop: function(event, ui) {
+            var idEl = "#" + ui.helper[0].id;
+            $(this).addClass("dropped").append($(idEl));
+            $(idEl).css({ "top": "-3px", "left": "-3px" }).draggable('disable');
+            checkEvents[4] = true;
+            if(!checkEvents.includes(false)) {
+                passPage();
+            }
+        }
+    });
+    $("#drag-6").draggable({
+        revert : function(event, ui) {
+            $(this).addClass("forbidden");
+            $(this).originalPosition = {
+                top : 0,
+                left : 0
+            };
+            setTimeout(function(){$("#drag-6").removeClass("forbidden")}, 1000);
+            return !event;
+        }
+    });
+    $("#drop-6").droppable({
+        accept: '#drag-6',
+        drop: function(event, ui) {
+            var idEl = "#" + ui.helper[0].id;
+            $(this).addClass("dropped").append($(idEl));
+            $(idEl).css({ "top": "-3px", "left": "-3px" }).draggable('disable');
+            checkEvents[5] = true;
+            if(!checkEvents.includes(false)) {
+                passPage();
+            }
+        }
+    });
+</script>

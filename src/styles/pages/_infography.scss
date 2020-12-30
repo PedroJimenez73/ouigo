@@ -1,0 +1,108 @@
+.info-pics {
+    position: relative;
+    margin: 3rem auto;
+    max-width: 100%;
+    min-height: 600px;
+}
+
+.info-pics #pic-1,
+.info-pics #pic-2,
+.info-pics #pic-3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+
+    img {
+        max-width: 100%;
+        transition: all 400ms ease-in-out;
+    }
+}
+.info-pics #pic-1 {
+    z-index: 2;
+}
+
+#pic-uno.open {
+    transform: translateY(30%) scale(1.4);
+}
+
+#pic-dos.open {
+    transform: translate(20%, -20%) scale(1.4);
+}
+
+#pic-tres.open {
+    transform: translateY(-10%) scale(1.4);
+}
+
+#number-uno,
+#number-dos,
+#number-tres {
+    position: absolute;
+    @include flex(center, center);
+    font-family: $bold-main-font;
+    font-size: 20px;
+    font-weight: 900;
+    color: #999;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    border: 3px solid #999;
+    cursor: pointer;
+    z-index: 3;
+
+    &.checked::after {
+        content: '';
+        position: absolute;
+        background: url('../img/check-border.svg') no-repeat;
+        background-size: 20px;
+        width: 25px;
+        height: 25px;
+        top: -14px;
+        right: -17px;
+    }
+}
+
+#number-uno {
+    top: 24%;
+    left: 27%;
+
+}
+
+#number-dos {
+    top: 47%;
+    left: 3%;
+}
+
+#number-tres {
+    top: 50%;
+    left: 87%;
+}
+
+.modal-info {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    background-color: white;
+    padding: 2rem;
+    max-width: 540px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.05);
+    display: none;
+
+    .header {
+        @include flex(space-between, center);
+        margin-bottom: 1rem;
+        h1 {
+            color: $brand-color;
+        }
+
+        img {
+            height: 40px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+    }
+}
+
+

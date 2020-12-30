@@ -1,0 +1,15 @@
+<div id="slide" class="body-box fade-in">
+    <video width="100%" controls autoplay src="https://d27khll5msmsup.cloudfront.net/e/49/video/3988d1441fcae30985c1db1b026038d5be87c4c0_es.mp4?v=1.0"></video>
+</div>
+<script src="js/jquery.fancybox.min.js"></script>
+<script>
+    var checkEvents = [false];
+    $(document).ready(function(){
+        $('video').on('ended', function(){
+            checkEvents[0] = true;
+            if(!checkEvents.includes(false)) {
+                passPage();
+            }
+        });
+    });
+</script>

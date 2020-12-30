@@ -1,0 +1,78 @@
+<div id="slide" class="body-box fade-in">
+    <div class="col-60 slide-in-left">
+        <p>Una clara línea <b>ética empresarial</b> se ha convertido en un <b>valor añadido</b> dentro de toda organización al crear un entorno participativo y transparente de trabajo, por un lado, y un gran valor diferencial ante el mercado y la sociedad por otro.</p>
+        <p>Para conseguir crear una auténtica <b>cultura de cumplimiento</b> es indispensable que como empleado conozcamos los siguientes aspectos clave del Código Ético y de Conducta.</p>
+    </div>
+    <section class="accordion slide-in-right">
+        <article onclick="toggleAccordion(1)">
+            <div class="accordion-title">
+                <h3>¿A QUIÉN LE AFECTA?</h3>
+                <img class="plus" src="img/plus-circle.svg" alt="">
+                <img class="minus" src="img/minus-circle.svg" alt="">
+            </div>
+            <div class="accordion-content">
+                <div class="flex">
+                    <div class="col-50 p-r">
+                        <p>EL CEC <b>implica a todos por igual</b> en la organización, desde el órgano de gobierno hasta el último empleado recién incorporado.</p>             
+                    </div>
+                    <div class="col-50 p-l">
+                        <p>Es el marco que se tiene en cuenta para tomar decisiones de negocio, presentar impuestos, o hacer fotocopias. No hay actuación demasiado grande o demasiado pequeña porque el <b>compromiso con la empresa</b> es el mismo para todos.</p>                 
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article onclick="toggleAccordion(2)">
+            <div class="accordion-title">
+                <h3>¿ES DE OBLIGADO CUMPLIMIENTO?</h3>
+                <img class="plus" src="img/plus-circle.svg" alt="">
+                <img class="minus" src="img/minus-circle.svg" alt="">
+            </div>
+            <div class="accordion-content">
+                <div class="flex">
+                    <div class="col-30 flex j-end">
+                        <img class="m-r-2" src="img/law-maze-white.svg" alt="">
+                    </div>
+                    <div class="col-70">
+                        <p><b>El CEC establece el modo en el que nos enfrentamos a los riesgos que se nos presentan en el desempeño de nuestro trabajo</b>. Su incumplimiento se considera una falta y puede ser sancionado conforme a la normativa laboral.</p>                 
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article onclick="toggleAccordion(3)">
+            <div class="accordion-title">
+                <h3>¿CÓMO ACTUAR SI SURGEN DUDAS?</h3>
+                <img class="plus" src="img/plus-circle.svg" alt="">
+                <img class="minus" src="img/minus-circle.svg" alt="">
+            </div>
+            <div class="accordion-content">
+                <p>El CEC debe adaptarse a cada circunstancia por lo que es necesario comunicar las dudas a los canales que se hayan establecido en la organización. Puedes enviar tus dudas a través del Canal Ético. Asimismo, todos los incumplimientos o incidencias deben ser reportados a través del Canal Ético.</p>
+            </div>
+        </article>
+    </section>
+</div>
+<script>
+    var checkEvents = [false, false, false];
+    function toggleAccordion(e) {
+        e--;
+        checkEvents[e] = true;
+        if(!checkEvents.includes(false)) {
+            passPage();
+        }
+        $('article').eq(e).css('pointer-events','none');
+        setTimeout(function () {
+            $('article').eq(e).css('pointer-events','auto');
+        }, 700);
+        for (i = 0; i < $('article').length; i++) {
+            if (i !== e) {
+                $('article').eq(i).removeClass('show');
+            } else {
+                $('article').eq(i).toggleClass('show');
+            }
+            if (i === e &&  $('.accordion-content').eq(i).css('display') === 'none') {
+                $('.accordion-content').eq(i).slideDown(700);
+            } else {
+                $('.accordion-content').eq(i).slideUp(700);
+            }
+        }
+    }
+</script>

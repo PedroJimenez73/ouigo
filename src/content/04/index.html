@@ -1,0 +1,74 @@
+<div id="slide" class="body-box fade-in">
+    <div class="col-60">
+        <p><img src="img/icono-redsys.png" alt=""><b class="brand">Caso Práctico: Corrupción, fraude y robo.</b></p>
+    </div>
+    <div class="col-100 slide-in-right">
+        <img class="responsive" src="img/corrupcion.svg" alt="">
+        <div class="question">
+            <p>Javier se ha topado con un conocido funcionario de aduanas y éste le comenta entre risas que va a ser abuelo. Le enseña una lista de regalos y con un guiño le indica que a su hijo le encantaría un carrito de bebé carísimo, viendo a su hijo feliz agilizaría los procedimientos habituales. El proyecto de Javier depende de que los productos puedan llegar a su destino en plazo, ¿Qué debe hacer?</p>
+        </div>
+        <div class="options">
+            <div class="value">
+                <p>A</p>
+            </div>
+            <div class="label label1" onclick="setAnswer(1)">
+                <p>No comprar ni el carrito de bebé ni ningún otro regalo, su relación se limita al más estricto ámbito profesional.</p>
+            </div>
+        </div>
+        <div class="options">
+            <div class="value">
+                <p>B</p>
+            </div>
+            <div class="label label1" onclick="setAnswer(2)">
+                <p>Que compre el carrito de bebé, es imperativo que se cumplan los plazos de entrega.</p>
+            </div>
+        </div>
+        <div class="options">
+            <div class="value">
+                <p>C</p>
+            </div>
+            <div class="label label1" onclick="setAnswer(3)">
+                <p>Ha de indicarle amablemente que según el CEC sólo es posible hacer regalos de escaso valor y simbólicos, por lo que se le hará llegar un detalle dentro de lo que consideramos procedente.</p>
+            </div>
+        </div>
+        <div class="flex j-end m-t-2">
+            <p id="feedback"><b>Ten en cuenta: "el CEC establece el tipo de regalos y la cuantía máxima que en todas ocasiones debe respetarse, cuando un tercero solicite un pago en metálico, regalo u hospitalidad, sugiera que puede saltarse la burocracia o agilizar los procedimientos habituales, repórtalo."</b></p>
+            <button disabled id="check-btn" onclick="checkAnswer()">Validar</button>
+        </div>
+    </div>
+</div>
+<script>
+    var checkEvents = [false];
+    var value;
+    var correct = 1;
+    var values = document.getElementsByClassName("value");
+    var labels = document.getElementsByClassName("label1");
+    function setAnswer(e) {
+        value = e;
+        e--;
+        for(i = 0; i < labels.length; i++ ) {
+            labels[i].classList.remove('checked');
+            labels[e].classList.add('checked');
+        }
+        document.getElementById('check-btn').disabled = false;
+    }
+    function checkAnswer() {
+        checkEvents[0] = true;
+        if(!checkEvents.includes(false)) {
+            passPage();
+        }
+        for(i = 0; i < labels.length; i++ ) {
+            labels[i].classList.remove('checked');
+            if (i + 1 == correct) {
+                values[i].classList.add('correct');
+                labels[i].classList.add('correct');
+            } else {
+                values[i].classList.add('incorrect');
+                labels[i].classList.add('incorrect');
+            }
+        }
+        document.getElementById('feedback').style.display = "block";
+        document.getElementById('check-btn').style.display = "none";
+    }
+    
+</script>

@@ -1,0 +1,86 @@
+<div id="slide" class="body-box fade-in">
+    <div class="flex slide-in-left">
+        <div class="col-60">
+           <p><b>Haz "click" en las casillas para descubrir la información.</b></p>
+        </div>
+    </div>
+    <div class="flex m-t-2 slide-in-bottom" style="background-image: url('img/fondo-buildings.jpg'); background-repeat: no-repeat; background-size: 100% auto; background-position: center;">
+        <div class="col-70 super-text transparent p-2 slide-in-left">
+           <p>Hay un amplio abanico de delitos que pueden derivar en responsabilidad penal para la empresa si se dan las condiciones que establece el Artículo 31 bis del Código Penal.</p>
+           <p>Aunque el listado es amplio se pueden resumir en:</p>
+        </div>
+    </div>
+    <div class="flips-row">
+        <div class="flips-col">
+            <div class="flip-card" onclick="showFlip(1)">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front p-t-2 p-b p-l-2 p-r-2 flex-column j-space-between a-center">
+                        <div class="col-50 m-b">
+                            <p class="center"><b>Delitos contras las personas</b></p>
+                        </div>
+                        <img style="height: 80px"src="img/tipo-canal-03.svg">
+                        <img style="align-self: flex-end; width: 50px; border-radius: 50%; box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.1);" src="img/changeCard.svg" alt="">
+                    </div>
+                    <div class="flip-card-back p-t-2 p-b p-l-2 p-r-2 flex-column a-center">
+                        <img style="height: 50px"src="img/tipo-canal-03-white.svg">
+                        <p class="center m-t">Son los delitos contra los trabajadores, la libertad y la indemnidad sexual, contra la intimidad, tráfico de drogas o contra la salud pública, delitos de odio...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flips-col">
+            <div class="flip-card" onclick="showFlip(2)">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front p-t-2 p-b p-l-2 p-r-2 flex-column j-space-between a-center">
+                        <div class="col-50 m-b">
+                            <p class="center"><b>Delitos contra las cosas</b></p>
+                        </div>
+                        <img style="height: 80px"src="img/crime-property.svg">
+                        <img style="align-self: flex-end; width: 50px; border-radius: 50%; box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.1);" src="img/changeCard.svg" alt="">
+                    </div>
+                    <div class="flip-card-back p-t-2 p-b p-l-2 p-r-2 flex-column a-center">
+                        <img style="height: 50px"src="img/crime-property-white.svg">
+                        <p class="center m-t">Son los delitos que alteran la economía o la sociedad: delitos contra el patrimonio, el mercado y los consumidores, urbanísticos y contra el medio ambiente, el blanqueo de capitales, financiación del terrorismo, corrupción y soborno...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flips-col">
+            <div class="flip-card" onclick="showFlip(3)">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front p-t-2 p-b p-l-2 p-r-2 flex-column j-space-between a-center">
+                        <div class="col-50 m-b">
+                            <p class="center"><b>Delitos más comunes</b></p>
+                        </div>
+                        <img style="height: 80px"src="img/crime-usual.svg">
+                        <img style="align-self: flex-end; width: 50px; border-radius: 50%; box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.1);" src="img/changeCard.svg" alt="">
+                    </div>
+                    <div class="flip-card-back p-t-2 p-b p-l-2 p-r-2 flex-column a-center">
+                        <img style="height: 50px"src="img/crime-usual-white.svg">
+                        <p class="center m-t">Sin olvidar que <b style="color:  #555;">cada organización tiene sus peculiaridades</b> y tendrá su mapa de riesgos concreto, estos son los delitos más comunes que se pueden dar en cualquier entidad:</p>
+                        <a data-fancybox data-type="iframe" data-src="docs/infografia_delitos.pdf" href="javascript:;">
+                            <button class="white m-t">Ver infografía</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/jquery.fancybox.min.js"></script>
+<script>
+    var checkEvents = [false, false, false];
+    var flips = document.getElementsByClassName('flip-card');
+    function showFlip(e) {
+        e--;
+        checkEvents[e] = true;
+        if(!checkEvents.includes(false)) {
+            passPage();
+        }
+        if(flips[e].classList.contains('show')) {
+            flips[e].classList.remove('show'); 
+        } else {
+            flips[e].classList.add('show');
+        }
+    }
+</script>

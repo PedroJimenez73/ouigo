@@ -1,0 +1,84 @@
+<div id="slide" class="body-box fade-in">
+    <div class="col-60">
+        <p><b>Tus compañeros necesitan tu ayuda, ¿sabrías aconsejarles éticamente?</b></p>
+        <p>Si surgen dudas, lo mejor es fiarse del sentido común.</p>
+        <p><img src="img/icono-redsys.png" alt=""><b class="brand">Caso Práctico: Política de regalos.</b></p>
+    </div>
+    <div class="col-100 slide-in-right">
+        <img class="responsive" src="img/restaurante.svg" alt="">
+        <div class="question">
+            <p>Andrea es la comercial más exitosa de la compañía. En 35 años de profesión ha logrado comercializar la totalidad de productos de la compañía. Llegadas las navidades, invita a los departamentos de compras a comer en un restaurante japonés, como agradecimiento de su colaboración. Como lleva 10 años haciéndolo, el chef le hace un precio especial por reservar todo el local y le cobra el cubierto a 150 €. La comida ha adquirido una fama merecida y se quieren apuntar directores financieros, responsables de auditoría interna y de compras y mesas de contratación. ¿Qué debería hacer Andrea?</p>
+        </div>
+        <div class="options">
+            <div class="value">
+                <p>A</p>
+            </div>
+            <div class="label label1" onclick="setAnswer(1)">
+                <p>Renegociar el precio o cambiar de establecimiento. 150€ es un robo.</p>
+            </div>
+        </div>
+        <div class="options">
+            <div class="value">
+                <p>B</p>
+            </div>
+            <div class="label label1" onclick="setAnswer(2)">
+                <p>Limpiar la lista de asistentes y limitar la invitación a los departamentos de compras.</p>
+            </div>
+        </div>
+        <div class="options">
+            <div class="value">
+                <p>C</p>
+            </div>
+            <div class="label label1" onclick="setAnswer(3)">
+                <p>Pedir autorización previa e incondicional a la Unidad de Compliance con un informe de idoneidad sobre la invitación a la comida.</p>
+            </div>
+        </div>
+        <div class="options">
+            <div class="value">
+                <p>D</p>
+            </div>
+            <div class="label label1" onclick="setAnswer(4)">
+                <p>Exigir a la dirección financiera de la empresa que le dote de una partida presupuestaria para el evento.</p>
+            </div>
+        </div>
+        <div class="flex j-end">
+            <p id="feedback"><b>Ten en cuenta: "Recuerda que las políticas relativas a los regalos establecen el corte considerado adecuado para la admisión y/o entrega de estos. Si tienes dudas, es necesario que las reportes a través de los canales establecidos."</b></p>
+            <button disabled id="check-btn" class="m-t-2" onclick="checkAnswer()">Validar</button>
+        </div>
+    </div>
+</div>
+<script>
+    var checkEvents = [false];
+    var value;
+    var correct = 3;
+    var values = document.getElementsByClassName("value");
+    var labels = document.getElementsByClassName("label1");
+    function setAnswer(e) {
+        value = e;
+        e--;
+        for(i = 0; i < labels.length; i++ ) {
+            labels[i].classList.remove('checked');
+            labels[e].classList.add('checked');
+        }
+        document.getElementById('check-btn').disabled = false;
+    }
+    function checkAnswer() {
+        checkEvents[0] = true;
+        if(!checkEvents.includes(false)) {
+            passPage();
+        }
+        for(i = 0; i < labels.length; i++ ) {
+            labels[i].classList.remove('checked');
+            if (i + 1 == correct) {
+                values[i].classList.add('correct');
+                labels[i].classList.add('correct');
+            } else {
+                values[i].classList.add('incorrect');
+                labels[i].classList.add('incorrect');
+            }
+        }
+        document.getElementById('feedback').style.display = "block";
+        document.getElementById('check-btn').style.display = "none";
+    }
+    
+</script>

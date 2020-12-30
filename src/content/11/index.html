@@ -1,0 +1,113 @@
+<div id="slide" class="body-box fade-in">
+    <div class="col-50">
+        <p><b>Haz "click" en las pestañas para ver el contenido.</b></p>
+    </div>
+    <div class="tab-component">
+        <div class="tabs">
+            <div class="tab active">Trabaja éticamente</div>
+            <div class="tab post-active">Pregunta, habla, sugiere, denuncia</div>
+            <div class="tab post-active">Normas a tener en cuenta</div>
+        </div>
+        <div class="contents">
+            <div class="content active">
+                <div class="flex">
+                    <div class="col-40">
+                        <p>Recuerda que tenemos un <b>Código de Conducta</b> como <b>guía de actuación</b> en nuestras relaciones profesionales, tanto internas como externas.</p>
+                    </div>
+                    <div class="col-20">
+                        <img id="pic-1" style="display: block; margin: 0 auto; height: 100px" src="img/codigo-etico.svg">
+                    </div>
+                    <div class="col-40">
+                        <p>Es importante que cada uno de nosotros conozcamos este documento y reflexionemos sobre cómo lo cumplimos en nuestra actividad profesional, tanto individual como colectivamente</p>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="flex">
+                    <div class="col-20">
+                        <img id="pic-2" style="display: block; margin: 0 auto; height: 100px">
+                    </div>
+                    <div class="col-60">
+                        <p>La empresa ha puesto a tu disposición <b>canales de comunicación adecuados</b> para resolverte todas las dudas en materia de cumplimiento normativo y para que puedas informar sobre riesgos y posibles incumplimientos.</p>
+                    </div>
+                    <div class="col-20">
+                        <img id="pic-3" style="display: block; margin: 0 auto; height: 100px">
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="flex">
+                    <div class="col-20">
+                        <img id="pic-4" style="display: block; margin: 0 auto; height: 100px">
+                    </div>
+                    <div class="col-30 p-r">
+                        <p>En desarrollo del <b>Sistema de Compliance</b> de la entidad, existe una serie de <b>normativas internas que debes considerar</b> en el desempeño de tus funciones.</p>
+                    </div>
+                    <div class="col-30">
+                        <p>Normas relativas a la protección y seguridad de la información, los regalos, conflictos de interés, el respeto al medio ambiente, de respeto al compañero, etc., todas ellas están creadas para establecer un entorno seguro de trabajo y facilitar el desarrollo de tu actividad.</p>
+                    </div>
+                    <div class="col-20">
+                        <img id="pic-5" style="display: block; margin: 0 auto; height: 100px">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="super-text flex p-b">
+        <div class="col-30 flex j-end p">
+            <img class="m-r" style="height: 100px" src="img/icon-remember_white.svg" alt="">
+        </div>
+        <div class="col-70 flex a-center p">
+            <p><b><span style="font-size: 1.2em">RECUERDA:</span></b> <b>Conocer y cumplir las normas establecidas en la organización consolidará una auténtica cultura de cumplimiento normativo.</b></p>                 
+        </div>
+    </div>
+</div>
+<script>
+    var checkEvents = [true, false, false];
+    var contentHeight = 0;
+
+    for (i = 0; i < $('.content').length; i++) {
+        if($('.content').eq(i).outerHeight() > contentHeight) {
+            contentHeight = $('.content').eq(i).outerHeight();
+        }
+    }
+    $('.contents').height(contentHeight);
+    var count = 0;
+    $('.tab').click(function() {
+        count++;
+        if(count == 1) {
+            document.getElementById('pic-2').src = "img/comunication-01.svg";
+            document.getElementById('pic-3').src = "img/comunication-02.svg";
+        }
+        if(count == 2) {
+            document.getElementById('pic-4').src = "img/rules.svg";
+            document.getElementById('pic-5').src = "img/icon-informacion.svg";
+        }
+
+        let index = $(this).index();
+        checkEvents[index] = true;
+        if(!checkEvents.includes(false)) {
+            passPage();
+        }
+        for (i = 0; i < $('.tab').length; i++) {
+            if(i === index) {
+                $('.tab').eq(i).removeClass('prev-active');
+                $('.tab').eq(i).removeClass('post-active');
+                $('.tab').eq(i).addClass('active');
+                $('.content').eq(i).addClass('active');
+            } else if (i < index) {
+                $('.tab').eq(i).removeClass('active');
+                $('.tab').eq(i).removeClass('post-active');
+                $('.tab').eq(i).addClass('prev-active');
+                $('.content').eq(i).removeClass('active');
+            } else {
+                $('.tab').eq(i).removeClass('active');
+                $('.tab').eq(i).removeClass('prev-active');
+                $('.tab').eq(i).addClass('post-active');
+                $('.content').eq(i).removeClass('active');
+            }
+        }
+    });
+</script>
+
+

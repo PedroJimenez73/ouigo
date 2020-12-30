@@ -1,0 +1,132 @@
+button {
+    background-color: $brand-color;
+    color: white;
+    font-family: $bold-main-font;
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    transition: all 400ms ease-in-out;
+
+    &:hover {
+        background-color: $brand-color-on-hover;
+        color: white;
+    }
+}
+
+button.white {
+    background-color:  #888888;
+    font-size: 1rem;
+    padding: 1rem 2rem;
+    transition: all 400ms ease-in-out;
+
+    &:hover {
+        background-color: white;
+        color: #585799;
+    }
+}
+
+button.reset {
+    background-color: #d9534f;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    font-family: $main-font;
+    border-radius: 4px;
+}
+
+
+#prev-btn,
+#next-btn {
+    border: 3px solid rgb(136,136,136);
+    width: 50px;
+    min-width: 50px;
+    height: 50px;
+    min-height: 50px;
+    border-radius: 60px;
+    padding: 0;
+    background-color: white;
+
+    img {
+        margin-top: 5px;
+    }
+    &:hover {
+        background-color: white;
+    }
+}
+
+#prev-btn:hover::after {
+    content: 'Retroceder';
+    color: $brand-color;
+    font-size: 14px;
+    display: inline-block;
+    transform: translateX(-15px);
+}
+
+#next-btn:hover::after {
+    content: 'Avanzar';
+    color: $brand-color;
+    font-size: 14px;
+    display: inline-block;
+    transform: translateX(-10px);
+    transition: 400ms all ease-in-out;
+}
+
+#next-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.2;
+}
+
+#next-btn:disabled:hover {
+    cursor: not-allowed;
+    opacity: 1;
+}
+
+#next-btn:disabled:hover::after {
+    content: 'Termina el ejercicio antes';
+    color: #dd6363;
+    font-size: 14px;
+    display: inline-block;
+    transform: translateX(-10px);
+    transition: 400ms all ease-in-out;
+}
+
+#test-btn:disabled,
+#check-btn:disabled {
+    cursor: not-allowed;
+    background-color: lightgrey;
+}
+
+@media (max-width: $mobile-width) {
+    #prev-btn,
+    #next-btn {
+        border: 2px solid rgb(136,136,136);
+        width: 40px;
+        min-width: 40px;
+        height: 40px;
+        min-height: 40px;
+        border-radius: 30px;
+        padding: 0;
+        background-color: white;
+
+        img {
+            margin-top: 2px;
+            height: 20px;
+        }
+        &:hover {
+            background-color: white;
+        }
+    }
+
+    #prev-btn:hover::after {
+        content: none;
+    }
+
+    #next-btn:hover::after {
+        content: none;
+    }
+
+    #next-btn:disabled:hover::after {
+        content: none;
+    }
+
+}

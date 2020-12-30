@@ -1,0 +1,27 @@
+<div id="slide" class="body-box beige fade-in">
+    <!-- <video width="100%" controls autoplay src="https://d27khll5msmsup.cloudfront.net/e/49/video/af07c47bca55668666d73b5a7a4042c5f4c8b3e7_es.mp4?v=1.0"></video> -->
+    <div class="col-100 flex j-end m-t-2">
+        <a data-fancybox data-type="iframe" data-src="docs/infografia_nueva_redsyspenal.pdf" href="javascript:;">
+            <button onclick="setEvent(2)">Descarga Infografía</button>      
+        </a>
+    </div>
+</div>
+<script src="js/jquery.fancybox.min.js"></script>
+<script>
+    var checkEvents = [false, false];
+    $(document).ready(function(){
+        $('video').on('ended', function(){
+            checkEvents[0] = true;
+            if(!checkEvents.includes(false)) {
+                passPage();
+            }
+        });
+    });
+    function setEvent(e){
+        e--;
+        checkEvents[e] = true;
+        if(!checkEvents.includes(false)) {
+            passPage();
+        }
+    }
+</script>

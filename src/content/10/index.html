@@ -1,0 +1,121 @@
+<style>
+
+</style>
+<div id="slide" class="body-box fade-in">
+    <div class="flex j-space-between">
+        <div class="col-50">
+            <p>Dentro de un Sistema de Compliance se diferencian claramente las siguientes tipologías de actores:</p>
+           <p><b>Haz "click" en los números </b>para ver las descripciones:</p>
+        </div>
+        <div class="col-40 p" style="background-color: white;">
+            <p style="margin-bottom: 0;"><b class="brand">1.</b> Actores con facultades de control y organización.</p>
+            <p style="margin-bottom: 0;"><b class="brand">2.</b> Actores sin facultades de control y organización.</p>
+            <p style="margin-bottom: 0;"><b class="brand">3.</b> Responsable de Compliance.</p>
+        </div>
+    </div>
+    <div class="info-pics slide-in-bottom">
+        <div id="pic-1">
+            <div class="number slide-in-top" style="animation-delay: 500ms;" id="number-uno" onclick="showInfo(1)" onmouseover="showing(1)" onmouseout="showing2()">
+                1
+            </div>
+            <img class="pic" id="pic-uno" src="img/penal-parte-01.svg" alt="">
+        </div>
+       <div id="pic-2">
+            <div class="number slide-in-top" style="animation-delay: 500ms;" id="number-dos" onclick="showInfo(2)" onmouseover="showing(2)" onmouseout="showing2()">
+                2
+            </div>
+            <img class="pic"  id="pic-dos" src="img/penal-parte-02.svg" alt="">
+       </div> 
+       <div id="pic-3">
+            <div class="number slide-in-top" style="animation-delay: 500ms;" id="number-tres" onclick="showInfo(3)" onmouseover="showing(3)" onmouseout="showing2()">
+                3
+            </div>
+            <img class="pic" id="pic-tres" src="img/penal-parte-03.svg" alt="">
+       </div>
+        <div class="modal-info">
+            <div class="header">
+                <h1>1. Actores con facultades de control y organización.</h1>
+                <img onclick="closeModal()" src="img/close.svg" alt="">
+            </div>
+            <p>
+                El Código Penal establece una <b>principal clasificación de actores que pueden cometer delitos</b> para todos
+                aquellos que estén autorizados a tomar decisiones en nombre de la empresa u ostenten facultades de organización
+                y control dentro de la misma.
+            </p>
+            <p>
+                Hablamos de figuras como consejeros delegados, altos directivos, responsables legales, así como del director de
+                planta o jefe de equipo.
+            </p>
+            <p>
+                Para que una organización cree una verdadera cultura de cumplimiento, el respeto a ley y la toma de decisiones
+                éticamente debe partir del compromiso visible de los líderes. <b>“Tone at the top, tone from the top”</b>.
+            </p>
+        </div>
+        <div class="modal-info">
+            <div class="header">
+                <h1>2. Actores sin facultades de control y organización.</h1>
+                <img onclick="closeModal()" src="img/close.svg" alt="">
+            </div>
+           <p>En este nivel se contempla cualquier empleado que sin especiales facultades de decisión o control en la empresa ha podido cometer el delito debido a la inexistencia de mecanismos de vigilancia o control por parte de los que ostentan la autoridad y representan a la empresa.</p>
+           <p>Todos en la empresa somos susceptibles de cometer delitos, es por ello por lo que a través del Sistema de Compliance, la figura responsable de su implantación y desarrollo, y con la colaboración de todos se generará y transmitirá la necesaria cultura de cumplimiento en la entidad.</p>
+        </div>
+        <div class="modal-info">
+            <div class="header">
+                <h1>3. Responsable de Compliance</h1>
+                <img onclick="closeModal()" src="img/close.svg" alt="">
+            </div>
+            <p class="center m-b-2">
+                <b>Infografía descargable:</b>
+            </p>
+            <a data-fancybox data-type="iframe" data-src="docs/infografia_responsable_compliance.pdf" href="javascript:;">
+                <img style="height: 120px; display: block; margin: 0 auto" src="img/icon-download_doc.svg" alt="">
+            </a>
+        </div>
+    </div>
+</div>
+<script src="js/jquery.fancybox.min.js"></script>
+<script>
+    var checkEvents = [false, false, false];
+    var imgs = document.querySelectorAll(".pic");
+    var nums = document.querySelectorAll(".number");
+    var modals = document.querySelectorAll(".modal-info");
+    function showing(e) {
+        e--
+        for (i = 0; i < imgs.length; i++) {
+            if(i !== e) {
+                imgs[i].style.opacity = 0.1;
+            }
+        }
+    }
+    function showing2() {
+        for (i = 0; i < imgs.length; i++) {
+            imgs[i].style.opacity = 1;
+        }
+    }
+    function showInfo(e) {
+        e--
+        nums[e].classList.add('checked');
+        checkEvents[e] = true;
+        if(!checkEvents.includes(false)) {
+            passPage();
+        }
+        for (i = 0; i < imgs.length; i++) {
+            nums[i].style.display = 'none';
+            if(i == e) {
+                imgs[i].classList.add('open');
+                modals[i].style.display = "block";
+            } else {
+                imgs[i].style.display = 'none';
+            }
+        }
+    }
+    function closeModal() {
+        for (i = 0; i < imgs.length; i++) {
+            modals[i].style.display = "none";
+            nums[i].style.display = 'flex';
+            imgs[i].classList.remove('open');
+            imgs[i].style.display = 'block';
+        }
+    }
+</script>
+

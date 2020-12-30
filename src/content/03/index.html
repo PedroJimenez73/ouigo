@@ -1,0 +1,75 @@
+<div id="slide" class="body-box fade-in">
+    <div class="col-60">
+        <p><b>Tus compañeros necesitan tu ayuda, ¿sabrías aconsejarles éticamente?</b></p>
+        <p>Si surgen dudas, lo mejor es fiarse del sentido común.</p>
+        <p><img src="img/icono-redsys.png" alt=""><b class="brand">Caso Práctico: Acoso, discriminación y entorno hostil.</b></p>
+    </div>
+    <div class="col-100 slide-in-right">
+        <img class="responsive" src="img/acoso.svg" alt="">
+        <div class="question">
+            <p>Andrea es testigo de los comentarios asiduos e inapropiados que realiza un compañero a un becario de distinta nacionalidad sobre su orientación religiosa y política, considerando que sólo se trata de comentarios inocentes ya que las noticias hablan constantemente de cómo piensan y sienten los de su país. ¿Qué debe hacer?</p>
+        </div>
+        <div class="options">
+            <div class="value">
+                <p>A</p>
+            </div>
+            <div class="label label1" onclick="setAnswer(0)">
+                <p>Se trata de un compañero con el que lleva trabajando ya muchos años, mejor que lo deje correr, no resulte que al final tenga problemas con él.</p>
+            </div>
+        </div>
+        <div class="options">
+            <div class="value">
+                <p>B</p>
+            </div>
+            <div class="label label1" onclick="setAnswer(1)">
+                <p>Dejarlo pasar ya que es algo entre dos adultos. Lo deben resolver entre ellos.</p>
+            </div>
+        </div>
+        <div class="options">
+            <div class="value">
+                <p>C</p>
+            </div>
+            <div class="label label1" onclick="setAnswer(2)">
+                <p>Debe reportar esa situación. “Sólo era una broma” no es excusa ni justificación para un comportamiento inadecuado.</p>
+            </div>
+        </div>
+        <div class="flex j-end">
+            <p id="feedback"><b>Ten en cuenta: "Todos debemos velar por construir un entorno de trabajo seguro y agradable. Si eres testigo de comportamientos que dañen a otro, repórtalo."</b></p>
+            <button disabled id="check-btn" class="m-t-2" onclick="checkAnswer()">Validar</button>
+        </div>
+    </div>
+</div>
+<script>
+    var checkEvents = [false];
+    var value;
+    var correct = 2;
+    var values = document.getElementsByClassName("value");
+    var labels = document.getElementsByClassName("label1");
+    function setAnswer(e) {
+        value = e;
+        for(i = 0; i < labels.length; i++ ) {
+            labels[i].classList.remove('checked');
+            labels[e].classList.add('checked');
+        }
+        document.getElementById('check-btn').disabled = false;
+    }
+    function checkAnswer() {
+        checkEvents[0] = true;
+        if(!checkEvents.includes(false)) {
+            passPage();
+        }
+        for(i = 0; i < labels.length; i++ ) {
+            labels[i].classList.remove('checked');
+            if (i == correct) {
+                values[i].classList.add('correct');
+                labels[i].classList.add('correct');
+            } else {
+                values[i].classList.add('incorrect');
+                labels[i].classList.add('incorrect');
+            }
+        }
+        document.getElementById('feedback').style.display = "block";
+        document.getElementById('check-btn').style.display = "none";
+    }
+    
+</script>

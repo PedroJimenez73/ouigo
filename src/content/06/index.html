@@ -1,0 +1,113 @@
+<style>
+    #slides-container {
+        overflow: hidden;
+        position: relative;
+    }
+    .slide {
+        transition: all ease-in-out 600ms;
+        position: absolute;
+        top: 0;
+    }
+</style>
+<div id="slide" class="body-box fade-in">
+    <div class="col-100">
+        <p><b>Un poco de contexto...</b> Ante situaciones como la siguiente: </p>
+    </div>
+    <div class="col-100 flex j-center a-center ">
+        <div class="tooltip">
+            <img style="height: 36px;" src="img/info.svg" alt="">
+            <span class="tooltiptext">
+                <h3 class="center">Instrucciones del Audio</h3>
+                <p>Para poder avanzar <b class="brand">tienes que pulsar los dos audios</b>.</p>
+                <p>Tienes la fuente de la noticia para poder buscar más información de los sucedido.</p>
+
+            </span>
+        </div>
+    </div>
+    <div id="slides-container">
+        <div class="col-100 slide show">
+            <img class="responsive" src="img/contratosWB.svg" alt="">
+            <div class="question">
+                <audio id="audio1" controls src="https://d27khll5msmsup.cloudfront.net/e/49/audio/746502ed80fa5dbfbf65b4551bd4c47c4c499faa_es.mp3?v=1.0"></audio>
+                <p>"Varias personas han sido detenidas en el marco de una operación de la Guardia Civil que investiga <b> el amaño y la falsificación de contratos en el Parque Warner de San Martín de la Vega.</b></p>
+                <p>&nbsp;</p>
+                <p>Los hechos hablan de delitos como corrupción entre particulares, estafa, blanqueo de capitales y falsedad documental. <b>Todo está vinculado con varios contratos de mantenimiento que datan de los últimos cuatro años </b> y que según los investigadores se adjudicaban a dedo, varios no se han ejecutado a pesar de ser cobrados y otros se firmaron con precios inflados, todo para, presuntamente, <b>repartir los beneficios entre los implicados.</b>"</p>
+                <p>&nbsp;</p>
+                <p><b>Fuente:</b> <a target="_blank" href="https://www.elmundo.es/madrid/2017/01/13/5877da1e22601dc34b8b4612.html">Corrupción en el Parque Warner: cuatro detenidos por amañar contratos de mantenimiento</a></p>
+            </div>
+            
+            <div class="flex j-end m-t-2">
+                <button onclick="setSlide(2)">Comunica</button>
+            </div>
+        </div>
+        <div class="col-100 slide">
+            <img class="responsive" style="height: 200px; margin: 40px auto" src="img/anonymous-letter.svg" alt="">
+            <div class="question">
+                <audio id="audio2" controls src="https://d27khll5msmsup.cloudfront.net/e/49/audio/7fb29f33f6c3d4b35184e88a78e01799c80c31cc_es.mp3?v=1.0"></audio>
+                <p><b>Pregunta, habla, sugiere, denuncia.</b></p>
+                <p>&nbsp;</p>
+                <p>"Según han explicado desde Parque Warner, la denuncia partió desde sus propias oficinas después de que una <b>carta anónima</b> alertase de irregularidades en algunos contratos. Cuatro meses después la empresa despide al jefe de mantenimiento, y a tres personas más y pone los hechos en conocimiento de la Guardia Civil, en línea con el protocolo para evitar este tipo de irregularidades en el centro.""</p>
+                <p>&nbsp;</p>
+                <p><b>Fuente:</b> <a target="_blank" href="https://www.elmundo.es/madrid/2017/01/13/5877da1e22601dc34b8b4612.html">Corrupción en el Parque Warner: cuatro detenidos por amañar contratos de mantenimiento</a></p>
+            </div>
+            <div class="super-text flex m-t-2">
+                <div class="col-30 flex j-end p-2">
+                    <img class="m-r-2" src="img/icon-remember_white.svg" alt="">
+                </div>
+                <div class="col-70 p-2">
+                    <p><b>Recuerda:</b> Comunicar situaciones que puedan suponer conductas contrarias a las leyes y normas internas ayudará a que ante situaciones como la descrita, la empresa pueda salvaguardar su reputación y demostrar que vela por el cumplimiento de la ley.</p>                 
+                </div>
+            </div>
+            <div class="flex m-t-2">
+                <button onclick="setSlide(1)">Volver</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var checkEvents = [false, false];
+
+    slides = document.getElementsByClassName('slide');
+    slideHeight = slides[0].offsetHeight;
+    for (i = 0; i < slides.length; i++) {
+        if (slides[i].offsetHeight > slideHeight) {
+            slideHeight = slides[i].offsetHeight;
+        }
+        slides[i].style.left = 2000 * i + "px";
+    }
+    document.getElementById('slides-container').style.height = slideHeight + 200 + "px";
+
+
+    function setSlide(e) {
+        e--;
+        if(e == 0) {
+            slides[0].style.left = 0;
+            slides[1].style.left = '2000px';
+        } else {
+            slides[0].style.left = '-2000px';
+            slides[1].style.left = 0;
+        }
+        setTimeout(function(){
+            $('html, body').animate({
+                scrollTop: 0
+            }, 400);
+        }, 600)
+    }
+    $(document).ready(function(){
+        $('#audio1').on('ended', function(){
+            checkEvents[0] = true;
+            if(!checkEvents.includes(false)) {
+                passPage();
+            }
+        });
+    });
+    $(document).ready(function(){
+        $('#audio2').on('ended', function(){
+            checkEvents[1] = true;
+            if(!checkEvents.includes(false)) {
+                passPage();
+            }
+        });
+    });
+    
+</script>

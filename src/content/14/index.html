@@ -1,0 +1,26 @@
+<div id="slide" class="body-box fade-in">
+    <div class="flex">
+        <div class="col-20">
+            <img style="display: block; margin: 0 auto; height: 150px" src="img/icon-informacion_comprensible.svg" alt="">
+        </div>
+        <div class="col-80">
+            <p>¡Lee atentamente cada una de las preguntas y sus respuestas, y te será sencillo superar este test!</p>
+            <p>Es importante, que una vez comiences esta evaluación, <b>contestes a todas las preguntas antes de salir</b>, para que se registren correctamente tus puntuaciones.</p>
+            <p>Para superar esta prueba deberás obtener un <b class="brand" style="font-size: 1.2rem">70% de aciertos.</b></p>
+            <p>Una vez finalizado, podrás comprobar los resultados obtenidos.</p>
+        </div>
+    </div>
+    <p class="m-t-2" id="passed" style="display: none; text-align: center;">Ya has aprobado el test, pulse en siguiente para acceder</p>
+    <div class="flex j-end">
+        <div class="m-t-2 m-b-2">
+            <button id="start-test" style="font-size: 1.3em; font-weight: 400; border-radius: 5px;" class="m-r" onclick="nextPage()">Comenzar Test</button>
+        </div>
+    </div>
+</div>
+<script>
+    passPage();
+    if(result >= 7) {
+        document.getElementById('start-test').style.display = "none";
+        document.getElementById('passed').style.display = "block";
+    }
+</script>

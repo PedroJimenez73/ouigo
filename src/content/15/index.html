@@ -1,0 +1,538 @@
+<div id="slide" class="body-box fade-in">
+    <div id="fail" class="fade-in">
+        <h2 class="m-t-2">Acabas de finalizar el Test, pero lamentablemente lo has suspendido.</h2>
+        <p class="m-t-2">Tu puntuación:</p>
+        <div class="flex j-center a-center">
+            <div class="circle">
+                <p id="result-fail"></p>
+            </div>
+        </div>
+        <div>
+            <button id="show-answers-fail" style="font-size: 1.3em;" class="m-r" onclick="showTest()">Revisar test</button>
+            <button style="font-size: 1.3em;" class="m-l" onclick="resetTest()">Repetir Test</button>
+        </div>
+    </div>
+
+    <div id="pre-congrats" class="fade-in">
+        <h2 class="m-t-2">Felicidades lo has superado, acabas de finalizar el Test.</h2>
+        <p class="m-t-2">Tu puntuación:</p>
+        <div class="flex j-center a-center">
+            <div class="circle">
+                <p id="result-success"></p>
+            </div>
+        </div>
+        <div>
+            <button id="show-answers-success" style="font-size: 1.3em;" class="m-r" onclick="showTest2()">Revisar test</button>
+            <button style="font-size: 1.3em;" class="m-l" onclick="goToSuccess()">Guardar Resultados</button>
+        </div>
+    </div>
+
+    <div id="intro" class="flex a-center">
+        <div class="col-40">
+            <p><img src="img/icono-redsys.png" alt=""><b class="brand">Ejercicio Verdadero/Falso</b></p>
+            <p>Responde la respuesta correcta en las siguientes preguntas:</p>
+        </div>
+        <div class="tooltip m-l-2">
+            <img style="height: 36px;" src="img/info.svg" alt="">
+            <span class="tooltiptext">
+                <p class="center m-b-2" style="font-size: 22px">Requisitos para aprobar</p>
+                <p>Para aprobar el cuestionario deberás obtener un <b class="brand">70% de aciertos</b>.</p>
+                <p>Una vez finalizado, podrás comprobar los resultados obtenidos y obtener tu certificado si pasas la prueba.</p>
+            </span>
+        </div>
+    </div>
+
+    <div id="answers" class="fade-in">
+        <h2 class="center">Respuestas</h1>
+    </div>
+
+    <div id="questions" class="fade-in">
+        <div class="col-100 m-t-2">
+            <div class="question">
+                <p>El Código Ético nos hace:</p>
+            </div>
+            <div class="options">
+                <div class="value value1">
+                    <p>A</p>
+                </div>
+                <div class="label label1" onclick="setAnswer(1, 0)">
+                    <p>Confiables, porque informa a todos como nos relacionamos, como gestionamos los riesgos a los que nos enfrentamos, como cumplimos con nuestras obligaciones y como cuidamos de las personas que tienen contacto con nosotros.</p>
+                </div>
+            </div>
+            <div class="options">
+                <div class="value value1">
+                    <p>B</p>
+                </div>
+                <div class="label label1" onclick="setAnswer(1, 1)">
+                    <p>Vulnerables, porque informa a las demás empresas de que dejamos de ser competitivos para cumplir con las leyes.</p>
+                </div>
+            </div>
+            <div class="options">
+                <div class="value value1">
+                    <p>C</p>
+                </div>
+                <div class="label label1" onclick="setAnswer(1, 2)">
+                    <p>Descuidados, porque ofrece una imagen débil sobre la verdadera naturaleza de la empresa.</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-100 m-t-2">
+            <div class="question">
+                <p>Para el éxito de un Sistema de Compliance todos los empleados debemos:</p>
+            </div>
+            <div class="options">
+                <div class="value value2">
+                    <p>A</p>
+                </div>
+                <div class="label label2" onclick="setAnswer(2, 0)">
+                    <p>Aplicar la normativa interna que nos afecta en el desempeño de nuestras funciones.</p>
+                </div>
+            </div>
+            <div class="options">
+                <div class="value value2">
+                    <p>B</p>
+                </div>
+                <div class="label label2" onclick="setAnswer(2, 1)">
+                    <p>Acudir al CEC para sugerir, comunicar o denunciar cualquier situación susceptible de contravenir las leyes y normas internas.</p>
+                </div>
+            </div>
+            <div class="options">
+                <div class="value value2">
+                    <p>C</p>
+                </div>
+                <div class="label label2" onclick="setAnswer(2, 2)">
+                    <p>Todas las anteriores son correctas.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-100 m-t-2">
+            <div class="question">
+                <p>Si incumplo el Código Ético:</p>
+            </div>
+            <div class="options">
+                <div class="value value3">
+                    <p>A</p>
+                </div>
+                <div class="label label3" onclick="setAnswer(3, 0)">
+                    <p>No pasa nada, solo es un documento que nos entregan cuando nos incorporamos a la empresa.</p>
+                </div>
+            </div>
+            <div class="options">
+                <div class="value value3">
+                    <p>B</p>
+                </div>
+                <div class="label label3" onclick="setAnswer(3, 1)">
+                    <p>Serás sancionado, porque es de obligado cumplimiento.</p>
+                </div>
+            </div>
+            <div class="options">
+                <div class="value value3">
+                    <p>C</p>
+                </div>
+                <div class="label label3" onclick="setAnswer(3, 2)">
+                    <p>Te abrirán un expediente solo para justificar que el Código Ético importa.</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-100 m-t-2">
+            <div class="question">
+                <p>¿Es legal hacer regalos a autoridades o funcionarios públicos, simplemente por cortesía de la empresa y sin la finalidad de conseguir algo a cambio?</p>
+            </div>
+            <div class="options">
+                <div class="value value4">
+                    <p>A</p>
+                </div>
+                <div class="label label4" onclick="setAnswer(4, 0)">
+                    <p>Claro que sí, siempre que no tenga una doble finalidad. Otra cosa sería entregar regalos para obtener algo a cambio.</p>
+                </div>
+            </div>
+            <div class="options">
+                <div class="value value4">
+                    <p>B</p>
+                </div>
+                <div class="label label4" onclick="setAnswer(4, 1)">
+                    <p>Podría ser constitutivo de un delito de cohecho. Lo evitaremos siempre.</p>
+                </div>
+            </div>
+            <div class="options">
+                <div class="value value4">
+                    <p>C</p>
+                </div>
+                <div class="label label4" onclick="setAnswer(4, 2)">
+                    <p>Claro que es legal. Una empresa privada es libre de hacer regalos a los funcionarios y autoridades, incluso puede ser un método muy beneficioso para la empresa y por tanto aconsejable.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-100 m-t-2">
+            <div class="question">
+                <p>El canal de denuncias sirve para:</p>
+            </div>
+            <div class="options">
+                <div class="value value5">
+                    <p>A</p>
+                </div>
+                <div class="label label5" onclick="setAnswer(5, 0)">
+                    <p>Amenazar a mis compañeros.</p>
+                </div>
+            </div>
+            <div class="options">
+                <div class="value value5">
+                    <p>B</p>
+                </div>
+                <div class="label label5" onclick="setAnswer(5, 1)">
+                    <p>Consultar dudas, comunicar sugerencias o alertar sobre incumplimientos e irregularidades de la ley o del sistema de compliance.</p>
+                </div>
+            </div>
+            <div class="options">
+                <div class="value value5">
+                    <p>C</p>
+                </div>
+                <div class="label label5" onclick="setAnswer(5, 2)">
+                    <p>Nada.</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-100 m-t-2">
+            <div class="question">
+                <p>El compliance officer es:</p>
+            </div>
+            <div class="options">
+                <div class="value value6">
+                    <p>A</p>
+                </div>
+                <div class="label label6" onclick="setAnswer(6, 0)">
+                    <p>No sé qué es.</p>
+                </div>
+            </div>
+            <div class="options">
+                <div class="value value6">
+                    <p>B</p>
+                </div>
+                <div class="label label6" onclick="setAnswer(6, 1)">
+                    <p>La persona designada por la empresa para comunicarse con la inspección de trabajo.</p>
+                </div>
+            </div>
+            <div class="options">
+                <div class="value value6">
+                    <p>C</p>
+                </div>
+                <div class="label label6" onclick="setAnswer(6, 2)">
+                    <p>La persona designada por la empresa para gestionar el sistema de compliance y vigilar de su cumplimiento.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-100 m-t-2">
+            <div class="question">
+                <p>El sistema de compliance:</p>
+            </div>
+            <div class="options">
+                <div class="value value7">
+                    <p>A</p>
+                </div>
+                <div class="label label7" onclick="setAnswer(7, 0)">
+                    <p>Significa más trabajo y mayores inconvenientes para cumplir con mi trabajo.</p>
+                </div>
+            </div>
+            <div class="options">
+                <div class="value value7">
+                    <p>B</p>
+                </div>
+                <div class="label label7" onclick="setAnswer(7, 1)">
+                    <p>Facilita las cosas para lograr la certificación en la ISO 9001.</p>
+                </div>
+            </div>
+            <div class="options">
+                <div class="value value7">
+                    <p>C</p>
+                </div>
+                <div class="label label7" onclick="setAnswer(7, 2)">
+                    <p>Crea valor para la empresa instaurando un sistema real de gestión de riesgos legales, crea una cultura ética en los negocios, puede eximir de una hipotética responsabilidad penal, ahorro en el pago de multas, mayor transparencia con nuestros clientes y accionistas, y mejora la imagen de la empresa dotándola de mayor seguridad y confianza.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-100 m-t-2">
+            <div class="question">
+                <p>El Código Ético es un documento que:</p>
+            </div>
+            <div class="options">
+                <div class="value value8">
+                    <p>A</p>
+                </div>
+                <div class="label label8" onclick="setAnswer(8, 0)">
+                    <p>Establece un marco de conducta para aquellos que formamos parte de la empresa.</p>
+                </div>
+            </div>
+            <div class="options">
+                <div class="value value8">
+                    <p>B</p>
+                </div>
+                <div class="label label8" onclick="setAnswer(8, 1)">
+                    <p>Resulta de obligado cumplimiento para todos en la empresa, porque afecta a todos por igual.</p>
+                </div>
+            </div>
+            <div class="options">
+                <div class="value value8">
+                    <p>C</p>
+                </div>
+                <div class="label label8" onclick="setAnswer(8, 2)">
+                    <p>Las dos anteriores son ciertas.</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-100 m-t-2">
+            <div class="question">
+                <p>Para que la empresa responda penalmente...</p>
+            </div>
+            <div class="options">
+                <div class="value value9">
+                    <p>A</p>
+                </div>
+                <div class="label label9" onclick="setAnswer(9, 0)">
+                    <p>Una empresa nunca responde penalmente.</p>
+                </div>
+            </div>
+            <div class="options">
+                <div class="value value9">
+                    <p>B</p>
+                </div>
+                <div class="label label9" onclick="setAnswer(9, 1)">
+                    <p>El delito se debe cometer en su beneficio.</p>
+                </div>
+            </div>
+            <div class="options">
+                <div class="value value9">
+                    <p>C</p>
+                </div>
+                <div class="label label9" onclick="setAnswer(9, 2)">
+                    <p>La empresa únicamente responde de lo que hacen mal los que tienen poderes notariales.</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-100 m-t-2">
+            <div class="question">
+                <p>Puedo comunicar comportamientos ilegales a través del canal de denuncias:</p>
+            </div>
+            <div class="options">
+                <div class="value value10">
+                    <p>A</p>
+                </div>
+                <div class="label label10" onclick="setAnswer(10, 0)">
+                    <p>Pero seré represaliado por los directivos.</p>
+                </div>
+            </div>
+            <div class="options">
+                <div class="value value10">
+                    <p>B</p>
+                </div>
+                <div class="label label10" onclick="setAnswer(10, 1)">
+                    <p>Seré calificado como chivato por mis compañeros.</p>
+                </div>
+            </div>
+            <div class="options">
+                <div class="value value10">
+                    <p>C</p>
+                </div>
+                <div class="label label10" onclick="setAnswer(10, 2)">
+                    <p>Seré apreciado como alguien leal a la empresa, preocupado por su crecimiento y, en consecuencia, protegido por la empresa y sus responsables.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex j-end">
+            <button disabled id="test-btn" class="m-t-2" onclick="checkAnswer()">FINALIZAR</button>
+        </div>
+    
+    </div>
+
+    <div id="congrats" class="fade-in">
+        <h1 class="m-t-2">¡Enhorabuena!</h1>
+        <p class="m-t-2">Has realizado la formación con éxito del curso:</p>
+        <h2 class="m-b-2">"FORMACIÓN COMPLIANCE PENAL"</h2>
+        <img src="img/enhorabuena-01.svg" alt="">
+        <input id="alumn-input" type="text" placeholder="Introduzca su nombre y apellidos completo">
+        <button style="display: block; margin: 0 auto; border-radius: 30px; font-size: 1.3em;"class="m-t-2" onclick="downloadCerti()">Descargar Certificado</button>
+        <!-- <div class="flex a-center j-end m-t-2">
+            <button class="reset">Borrar datos</button>
+        </div> -->
+    </div>
+</div>
+<script>
+    var checkEvents = [false];
+    var value;
+    var corrects = [0, 2, 1, 1, 1, 2, 2, 2, 1, 2];
+    var values = [];
+    var labels = [];
+    var answered = [null,null,null,null,null,null,null,null,null,null];
+    var alumn;
+
+    // jsPDF
+
+    var { jsPDF } = window.jspdf;
+    var doc = new jsPDF('l', 'mm', [297, 210]);
+    var isIOS = /iPad|iPhone|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+
+    for (i = 0; i < corrects.length; i++) {
+        values.push(document.getElementsByClassName("value" + (i + 1)));
+        labels.push(document.getElementsByClassName("label" + (i + 1)));
+    }
+    if (result !== 0 ) {
+        document.getElementById('intro').style.display = "none";
+        document.getElementById('questions').style.display = "none";
+        if(result / answered.length >= 0.7) {
+            document.getElementById('result-success').innerHTML = result + '/' + answered.length;
+            document.getElementById('pre-congrats').style.display = "block";
+
+        } else {
+            document.getElementById('result-fail').innerHTML = result + '/' + answered.length;
+            document.getElementById('fail').style.display = "block";
+        }
+    }
+
+    function setAnswer(e, value) {
+        e--;
+        for(i = 0; i < labels[e].length; i++ ) {
+            labels[e][i].classList.remove('checked');
+        }
+        labels[e][value].classList.add('checked');
+        answered[e] = value;
+        unlockButton();
+    }
+
+    function unlockButton () {
+        var nulls = 0;
+        for (i = 0; i < answered.length; i++) {
+            if(answered[i] === null) {
+                nulls++;
+            } 
+        }
+        if (nulls === 0) {
+            document.getElementById('test-btn').disabled = false;
+        }
+    }
+
+    function checkAnswer() {
+
+        result = 0;
+        for (i = 0; i < answered.length; i++) {
+            if(answered[i] === corrects[i]) {
+                result++;
+            } 
+        }
+        setState();
+        document.getElementById('intro').style.display = "none";
+        document.getElementById('questions').style.display = "none";
+        if(result / answered.length >= 0.7) {
+            passPage();
+            document.getElementById('result-success').innerHTML = result + '/' + answered.length;
+            document.getElementById('pre-congrats').style.display = "block";
+        } else {
+            document.getElementById('result-fail').innerHTML = result + '/' + answered.length;
+            document.getElementById('fail').style.display = "block";
+        }
+    }
+    function showTest() {
+        for (i = 0; i < corrects.length; i++) {
+            for(j = 0; j < 3; j++ ) {
+                labels[i][j].classList.remove('checked');
+                if (j === corrects[i]) {                
+                    values[i][j].classList.add('correct');
+                    labels[i][j].classList.add('correct');
+                } else {
+                    values[i][j].classList.add('incorrect');
+                    labels[i][j].classList.add('incorrect');
+                }
+            }
+        }
+        document.getElementById('show-answers-fail').style.display = "none";
+        document.getElementById('answers').style.display = "block";
+        document.getElementById('questions').style.display = "block";
+        document.getElementById('test-btn').style.display = "none";
+    }
+
+    function showTest2() {
+        for (i = 0; i < corrects.length; i++) {
+            for(j = 0; j < 3; j++ ) {
+                labels[i][j].classList.remove('checked');
+                if (j === corrects[i]) {                
+                    values[i][j].classList.add('correct');
+                    labels[i][j].classList.add('correct');
+                } else {
+                    values[i][j].classList.add('incorrect');
+                    labels[i][j].classList.add('incorrect');
+                }
+            }
+        }
+        document.getElementById('show-answers-success').style.display = "none";
+        document.getElementById('answers').style.display = "block";
+        document.getElementById('questions').style.display = "block";
+        document.getElementById('test-btn').style.display = "none";
+    }
+
+    function goToSuccess() {
+        document.getElementById('pre-congrats').style.display = "none";
+        document.getElementById('answers').style.display = "none";
+        document.getElementById('questions').style.display = "none";
+        document.getElementById('congrats').style.display = "block";
+    }
+
+    function resetTest() {
+        document.getElementById('fail').style.display = "none";
+        document.getElementById('answers').style.display = "none";
+        answered = [null,null,null,null,null,null,null,null,null,null];
+        result = 0;
+        setState();
+        for (i = 0; i < corrects.length; i++) {
+            for(j = 0; j < 3; j++ ) {
+                labels[i][j].classList.remove('checked');
+                if (j === corrects[i]) {                
+                    values[i][j].classList.remove('correct');
+                    labels[i][j].classList.remove('correct');
+                } else {
+                    values[i][j].classList.remove('incorrect');
+                    labels[i][j].classList.remove('incorrect');
+                }
+            }
+        }
+        document.getElementById('intro').style.display = "flex";
+        document.getElementById('questions').style.display = "block";
+        document.getElementById('test-btn').disabled = true;
+        document.getElementById('test-btn').style.display = "block";
+    }
+
+    function downloadCerti() {
+        alumn = document.getElementById('alumn-input').value;
+        doc.addImage("docs/certificado.jpg", "JPEG", 0, 0, 297, 210);
+        doc.setFontSize(24);
+        doc.setTextColor(83, 104, 120);
+        doc.text(alumn, 151, 85, 'center');
+        if (isIOS) {
+            doc.output('dataurlnewwindow', 'certificado.pdf'); 
+        } else {
+            doc.save('certificado.pdf');
+        }
+    }
+
+</script>
